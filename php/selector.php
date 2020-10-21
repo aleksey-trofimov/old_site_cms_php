@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="Content-Type" content="text/html; />
 <title>
 </title>
 <body>
@@ -29,7 +29,7 @@ a:hover {
 
 
 <?
-echo "<b><div style='padding-left:20px'>Выберите картинку:</div></b><br>";
+echo "<b><div style='padding-left:20px'>Г‚Г»ГЎГҐГ°ГЁГІГҐ ГЄГ Г°ГІГЁГ­ГЄГі:</div></b><br>";
 
  $dh = opendir("/home/vir/paloma/$record_path/");
  $file= readdir($dh);
