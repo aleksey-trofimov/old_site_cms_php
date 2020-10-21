@@ -9,6 +9,7 @@
 <body topmargin=0 marginwidth=4 leftmargin=4 marginheight=0 bgcolor=#E1E1E1 class=text_common>
 
 <br><br><br><br>
-<center><b>Выберите страницу для редактирования</b></center>
+<center><b>Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂР°РЅРёС†Сѓ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ</b></center>
 </body>
 </html>
+
