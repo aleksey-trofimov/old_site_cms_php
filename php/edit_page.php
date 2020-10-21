@@ -8,7 +8,32 @@
   mysql_select_db("paloma",$db);
 
 
-  ////// Вычисляем путь к каталогу странички
+  ////// Г‚Г»Г·ГЁГ±Г«ГїГҐГ¬ ГЇГіГІГј ГЄ ГЄГ ГІГ Г«Г®ГЈГі Г±ГІГ°Г Г­ГЁГ·ГЄГЁ
+  $result_img1 = mysql_query("SELECT ID, PARENT_ID FROM records WHERE id=$r_id",$db)
+   or die("Invalid query: " . mysql_error());
+
+  $myrow_img1 = mysql_fetch_array($result_img1) ;
+  $s_id1 = $myrow_img1["ID"];
+  $s_parent_id1 = $myrow_img1["PARENT_ID"];
+  $result_img2 = mysql_query("SELECT ID, PARENT_ID FROM records WHERE id=$s_parent_id1",$db)
+   or die("Invalid query: " . mysql_error());
+
+  if (mysql_num_rows($result_img2) ) 
+  { 
+   $myrow_img2 = mysql_fetch_array($result_img2) ;
+   $s_id2 = $myrow_img2["ID"];
+   $s_parent_id2 = $myrow_img2["PARENT_ID"];
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<?php
+  include"config.php";
+  include"$base_path/common/css.htm";
+  $db = mysql_connect("localhost", " ", " ");
+  mysql_select_db("paloma",$db);
+
+
+  ////// Р’С‹С‡РёСЃР»СЏРµРј РїСѓС‚СЊ Рє РєР°С‚Р°Р»РѕРіСѓ СЃС‚СЂР°РЅРёС‡РєРё
   $result_img1 = mysql_query("SELECT ID, PARENT_ID FROM records WHERE id=$r_id",$db)
    or die("Invalid query: " . mysql_error());
 
@@ -42,34 +67,34 @@
      $s_id4 = $myrow_img4["ID"];
      $s_parent_id4 = $myrow_img4["PARENT_ID"];
 
-     //Запись четвертого уровня. формируем путь
+     //Р—Р°РїРёСЃСЊ С‡РµС‚РІРµСЂС‚РѕРіРѕ СѓСЂРѕРІРЅСЏ. С„РѕСЂРјРёСЂСѓРµРј РїСѓС‚СЊ
      $record_path = "$dir/$s_id4/$s_id3/$s_id2/$s_id1"; 
      $record_site_path = "$s_id4/$s_id3/$s_id2/$s_id1"; 
     }
     else
     {
-     //Запись третьего уровня. формируем путь
+     //Р—Р°РїРёСЃСЊ С‚СЂРµС‚СЊРµРіРѕ СѓСЂРѕРІРЅСЏ. С„РѕСЂРјРёСЂСѓРµРј РїСѓС‚СЊ
      $record_path = "$dir/$s_id3/$s_id2/$s_id1"; 
      $record_site_path = "$s_id3/$s_id2/$s_id1"; 
     }
    }
    else
    {
-    //Запись второго уровня. формируем путь
+    //Р—Р°РїРёСЃСЊ РІС‚РѕСЂРѕРіРѕ СѓСЂРѕРІРЅСЏ. С„РѕСЂРјРёСЂСѓРµРј РїСѓС‚СЊ
     $record_path = "$dir/$s_id2/$s_id1"; 
     $record_site_path = "$s_id2/$s_id1"; 
    }
   }
   else
   {
-   //Запись первого уровня. формируем путь
+   //Р—Р°РїРёСЃСЊ РїРµСЂРІРѕРіРѕ СѓСЂРѕРІРЅСЏ. С„РѕСЂРјРёСЂСѓРµРј РїСѓС‚СЊ
    $record_path = "$dir/$s_id1";
    $record_site_path = "$s_id1"; 
   }
-//////////////////////////////////////////// Вычислили 8-)
+//////////////////////////////////////////// Р’С‹С‡РёСЃР»РёР»Рё 8-)
   $ext_record_path=str_replace("/home/vir/paloma","",$record_path);
 
-  ///Хитрая формочка в ней передаем путь к картинке редактору Tiny
+  ///РҐРёС‚СЂР°СЏ С„РѕСЂРјРѕС‡РєР° РІ РЅРµР№ РїРµСЂРµРґР°РµРј РїСѓС‚СЊ Рє РєР°СЂС‚РёРЅРєРµ СЂРµРґР°РєС‚РѕСЂСѓ Tiny
   print"<form name='base' method='POST' action=''>
         <input type='hidden' name='dual' value='$ext_record_path'>
         </form>";
@@ -87,16 +112,16 @@
 
 if($delete_page)
 {
- //Проверить, есть ли потомки
+ //РџСЂРѕРІРµСЂРёС‚СЊ, РµСЃС‚СЊ Р»Рё РїРѕС‚РѕРјРєРё
 
  $result = mysql_query("SELECT * FROM records WHERE parent_id=$r_id",$db);
  if( mysql_num_rows($result) )
  {
-  echo("Нельзя удалить эту запись, так как она содержит вложенные записи");
+  echo("РќРµР»СЊР·СЏ СѓРґР°Р»РёС‚СЊ СЌС‚Сѓ Р·Р°РїРёСЃСЊ, С‚Р°Рє РєР°Рє РѕРЅР° СЃРѕРґРµСЂР¶РёС‚ РІР»РѕР¶РµРЅРЅС‹Рµ Р·Р°РїРёСЃРё");
  }
  else
  {
-  //Нужно потереть каталог и все картинки
+  //РќСѓР¶РЅРѕ РїРѕС‚РµСЂРµС‚СЊ РєР°С‚Р°Р»РѕРі Рё РІСЃРµ РєР°СЂС‚РёРЅРєРё
 
   $droot = opendir("$record_path");
   if(!$droot)
@@ -116,18 +141,18 @@ if($delete_page)
   }
   closedir($droot);
 
-//Запрещаем удаление некоторых разделов
+//Р—Р°РїСЂРµС‰Р°РµРј СѓРґР°Р»РµРЅРёРµ РЅРµРєРѕС‚РѕСЂС‹С… СЂР°Р·РґРµР»РѕРІ
 
   if( ($r_id!=2) && ($r_id!=3) )
   {
    rmdir("$record_path");
 
    $result = mysql_query("DELETE FROM records WHERE id=$r_id");
-   echo("<center>Страница была удалена.</center>") ;
+   echo("<center>РЎС‚СЂР°РЅРёС†Р° Р±С‹Р»Р° СѓРґР°Р»РµРЅР°.</center>") ;
   }
   else
   {
-   echo("Нельзя удалять этот раздел через web-интерфейс. Обратитесь к разработчику.");
+   echo("РќРµР»СЊР·СЏ СѓРґР°Р»СЏС‚СЊ СЌС‚РѕС‚ СЂР°Р·РґРµР» С‡РµСЂРµР· web-РёРЅС‚РµСЂС„РµР№СЃ. РћР±СЂР°С‚РёС‚РµСЃСЊ Рє СЂР°Р·СЂР°Р±РѕС‚С‡РёРєСѓ.");
   }
  }
 } 
@@ -138,7 +163,7 @@ else
 <body topmargin=0 marginwidth=4 leftmargin=4 marginheight=0 bgcolor=#E1E1E1 class=text_common>
 <?php
 
-/*----------------------------------------Обновляем текст-------------------------------------------*/
+/*----------------------------------------РћР±РЅРѕРІР»СЏРµРј С‚РµРєСЃС‚-------------------------------------------*/
 
  if($text_name || $text_content || $text_menu_title || $priority || $text_date )
  {
@@ -186,7 +211,7 @@ else
   }
 
 
-/*Меняем контейнерный статус.*/
+/*РњРµРЅСЏРµРј РєРѕРЅС‚РµР№РЅРµСЂРЅС‹Р№ СЃС‚Р°С‚СѓСЃ.*/
   $checkbox_status;
   if( $IS_CONTAINER_CHECKBOX_POSITIVE )
 {
@@ -199,13 +224,13 @@ else
   
   if( ($data_sent) && ( $s_is_container != $checkbox_status) && ($edit_type == 1) )
   {
-   //Проверяем, нет ли у записи потомков
+   //РџСЂРѕРІРµСЂСЏРµРј, РЅРµС‚ Р»Рё Сѓ Р·Р°РїРёСЃРё РїРѕС‚РѕРјРєРѕРІ
    $test_children = mysql_query("SELECT ID FROM records WHERE parent_id=$r_id",$db)
     or die("Invalid query: " . mysql_error());
 
    if ( mysql_num_rows($test_children) ) 
    {
-    echo("<b><font color=red>Страница содержит вложенные страницы, изменение статуса отменено.</font></b>");
+    echo("<b><font color=red>РЎС‚СЂР°РЅРёС†Р° СЃРѕРґРµСЂР¶РёС‚ РІР»РѕР¶РµРЅРЅС‹Рµ СЃС‚СЂР°РЅРёС†С‹, РёР·РјРµРЅРµРЅРёРµ СЃС‚Р°С‚СѓСЃР° РѕС‚РјРµРЅРµРЅРѕ.</font></b>");
    }
    else
    {
@@ -217,83 +242,83 @@ else
 ?>
 <table border=0 cellpadding=0 cellspacing=0>
 <tr height=5><td></td></tr>
-<!--<tr><td align=center>Создана:<?php echo" $s_entry_date" ?>, Изменена:<?php echo" $s_edit_date" ?></td></tr>-->
+<!--<tr><td align=center>РЎРѕР·РґР°РЅР°:<?php echo" $s_entry_date" ?>, РР·РјРµРЅРµРЅР°:<?php echo" $s_edit_date" ?></td></tr>-->
 <tr height=5><td></td></tr>
 <tr><td align=center>
 <a href="<?php echo"$PHP_SELF?edit_type=1&r_id=$s_id&dir=$dir&lang=$lang" ?>">
-[Редактировать текст]
+[Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С‚РµРєСЃС‚]
 </a>&nbsp;&nbsp;
 <a href="<?php echo"$PHP_SELF?edit_type=2&r_id=$s_id&dir=$dir&lang=$lang" ?>">
-[Редактировать изображения]
+[Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ]
 </a>&nbsp;&nbsp;
 
 <form MARGINHEIGHT=0 enctype="multipart/form-data" method="post" action="<?php echo"$PHP_SELF?edit_type=$edit_type&r_id=$s_id&data_sent=1&dir=$dir&lang=$lang" ?>" >
 
 <?php if( $s_is_container ) $checkbox_status = "checked"; else $checkbox_status = "unchecked"; ?>
 <INPUT TYPE=CHECKBOX NAME="IS_CONTAINER_CHECKBOX_POSITIVE" <?php echo"$checkbox_status";?> >
-&nbsp;Содержит подразделы&nbsp;&nbsp;
+&nbsp;РЎРѕРґРµСЂР¶РёС‚ РїРѕРґСЂР°Р·РґРµР»С‹&nbsp;&nbsp;
 <a href="<?php echo"$PHP_SELF?edit_type=1&r_id=$s_id&dir=$dir&lang=ru" ?>">
 <img src="img/rus.gif" border=0></a>
 &nbsp;&nbsp;
 <a href="<?php echo"$PHP_SELF?edit_type=1&r_id=$s_id&dir=$dir&lang=en" ?>">
 <img src="img/eng.gif" border=0></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="<?php echo("ask_delete.php?dir=$dir&edit_type=$edit_type&r_id=$r_id");?>"><font color=red>Удалить страницу</font></a>
+<a href="<?php echo("ask_delete.php?dir=$dir&edit_type=$edit_type&r_id=$r_id");?>"><font color=red>РЈРґР°Р»РёС‚СЊ СЃС‚СЂР°РЅРёС†Сѓ</font></a>
 </td></tr>
 <tr><td align=left>
-<!--<b>Настройки страницы <?php echo"\"$s_php_menu_name\"" ?></b>-->
+<!--<b>РќР°СЃС‚СЂРѕР№РєРё СЃС‚СЂР°РЅРёС†С‹ <?php echo"\"$s_php_menu_name\"" ?></b>-->
 </td></tr>
 
 <tr height=5><td></td></tr></table>
 <!--<form MARGINHEIGHT=0 enctype="multipart/form-data" method="post" action="<?php echo"$PHP_SELF?edit_type=$edit_type&r_id=$s_id&data_sent=1&dir=$dir&lang=$lang" ?>" >-->
 <?php
 
-/*----------------------------------------Обновили текст-------------------------------------------*/
+/*----------------------------------------РћР±РЅРѕРІРёР»Рё С‚РµРєСЃС‚-------------------------------------------*/
 
  if($text_name || $text_content || $text_menu_title || $priority || $text_date)
  {
-  echo("<center>Информация изменена</center>");
+  echo("<center>РРЅС„РѕСЂРјР°С†РёСЏ РёР·РјРµРЅРµРЅР°</center>");
  }
 
-/*-------------------------------Обрабатываем закачанную картинку-----------------------------------*/
-//Сохраняем информацию о пути к картинке заголовка.
+/*-------------------------------РћР±СЂР°Р±Р°С‚С‹РІР°РµРј Р·Р°РєР°С‡Р°РЅРЅСѓСЋ РєР°СЂС‚РёРЅРєСѓ-----------------------------------*/
+//РЎРѕС…СЂР°РЅСЏРµРј РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїСѓС‚Рё Рє РєР°СЂС‚РёРЅРєРµ Р·Р°РіРѕР»РѕРІРєР°.
  if($menu_pic)
  { 
   $result = mysql_query("UPDATE records SET MENU_PIC_PATH='$menu_pic' WHERE id=$s_id");
   $s_menu_pic_path = $menu_pic;
  }
-// Добавление картинки
+// Р”РѕР±Р°РІР»РµРЅРёРµ РєР°СЂС‚РёРЅРєРё
  if(is_uploaded_file($new_picture))
  {
   $file_extension = substr($new_picture_name, -3);
   if( ($file_extension == "jpg") || ($file_extension == "JPG") )
   {
-//Надо учитывать что фота может быть вертикальной...
+//РќР°РґРѕ СѓС‡РёС‚С‹РІР°С‚СЊ С‡С‚Рѕ С„РѕС‚Р° РјРѕР¶РµС‚ Р±С‹С‚СЊ РІРµСЂС‚РёРєР°Р»СЊРЅРѕР№...
 
    $FileNoExtension = substr($new_picture_name, 0, -4);
-   //Добавляем _large к имени файла
-   //Плохой способ соединить строки
+   //Р”РѕР±Р°РІР»СЏРµРј _large Рє РёРјРµРЅРё С„Р°Р№Р»Р°
+   //РџР»РѕС…РѕР№ СЃРїРѕСЃРѕР± СЃРѕРµРґРёРЅРёС‚СЊ СЃС‚СЂРѕРєРё
    $filename_large = join("", array($record_path, '/', $FileNoExtension, "_large.jpg") );
    copy($new_picture, $filename_large);
-   //Теперь файл есть на сервере, можно с ним работать
+   //РўРµРїРµСЂСЊ С„Р°Р№Р» РµСЃС‚СЊ РЅР° СЃРµСЂРІРµСЂРµ, РјРѕР¶РЅРѕ СЃ РЅРёРј СЂР°Р±РѕС‚Р°С‚СЊ
 
-   // Получаем размер исходного изображения
+   // РџРѕР»СѓС‡Р°РµРј СЂР°Р·РјРµСЂ РёСЃС…РѕРґРЅРѕРіРѕ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
    list($width, $height) = GetImageSize($filename_large);
 
    if( ($width > 520) )
    {
-    //Грузят большую картинку, надо резать!
+    //Р“СЂСѓР·СЏС‚ Р±РѕР»СЊС€СѓСЋ РєР°СЂС‚РёРЅРєСѓ, РЅР°РґРѕ СЂРµР·Р°С‚СЊ!
     $new_width = 520;
     $new_height= round(520*$height/$width);
-    $image_large = ImageCreate($new_width, $new_height);//ImageCreateTrueColor - более правильно
+    $image_large = ImageCreate($new_width, $new_height);//ImageCreateTrueColor - Р±РѕР»РµРµ РїСЂР°РІРёР»СЊРЅРѕ
     $image_old = ImageCreateFromJpeg($filename_large);
 
-    //ImageCopyResampled - более правильно
+    //ImageCopyResampled - Р±РѕР»РµРµ РїСЂР°РІРёР»СЊРЅРѕ
     ImageCopyResized($image_large, $image_old, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
     unlink($filename_large);
     ImageJpeg($image_large, $filename_large, 80);
    }
 
-   // Добавляем уменьшенную копию изображения
+   // Р”РѕР±Р°РІР»СЏРµРј СѓРјРµРЅСЊС€РµРЅРЅСѓСЋ РєРѕРїРёСЋ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
    list($width, $height) = GetImageSize($filename_large);
    $new_width = 133;
    $new_height= round(133*$height/$width);
@@ -302,14 +327,14 @@ else
    $FileNoExtension = substr($filename_large, 0, -10);
    $filename_small = join("", array( $FileNoExtension, "_small.jpg") );
 
-   $image_small = ImageCreate($new_width, $new_height);//ImageCreateTrueColor - более правильно
+   $image_small = ImageCreate($new_width, $new_height);//ImageCreateTrueColor - Р±РѕР»РµРµ РїСЂР°РІРёР»СЊРЅРѕ
    $image_old = ImageCreateFromJpeg($filename_large);
    ImageCopyResized($image_small, $image_old, 0, 0, 0, 0, $new_width, $new_height, $width, $height);  
    ImageJpeg($image_small, $filename_small, 80);
-   echo("<center>Изображение добавлено</center>");
+   echo("<center>РР·РѕР±СЂР°Р¶РµРЅРёРµ РґРѕР±Р°РІР»РµРЅРѕ</center>");
   }
 
-//Копирование видео ролика
+//РљРѕРїРёСЂРѕРІР°РЅРёРµ РІРёРґРµРѕ СЂРѕР»РёРєР°
   if( ($file_extension == "wmv") || ($file_extension == "avi") || ($file_extension == "mpg")
    || ($file_extension == "WMV") || ($file_extension == "AVI") || ($file_extension == "MPG") )
   {
@@ -319,7 +344,7 @@ else
 
  }
 
-// Удаление картинки
+// РЈРґР°Р»РµРЅРёРµ РєР°СЂС‚РёРЅРєРё
 
  if($delete_picture)
  {
@@ -330,7 +355,7 @@ else
    $delete_picture_construst = join("", array($delete_picture_begin, "_large.jpg") );
    unlink("$delete_picture_construst");
   }
-  echo("<center>Изображение удалено</center>"); ///???DIR
+  echo("<center>РР·РѕР±СЂР°Р¶РµРЅРёРµ СѓРґР°Р»РµРЅРѕ</center>"); ///???DIR
  }
 ?>
 
@@ -339,11 +364,11 @@ else
 <?php
  if($edit_type == 1)
  {
-/*----------------------------------------Редактируем текст-----------------------------------------*/
+/*----------------------------------------Р РµРґР°РєС‚РёСЂСѓРµРј С‚РµРєСЃС‚-----------------------------------------*/
 ?>
 
 <tr>
-<td width=137>Заголовок</td>
+<td width=137>Р—Р°РіРѕР»РѕРІРѕРє</td>
 <td>
 <textarea cols=100 name=text_menu_title rows=1 maxlength=1000 class=text_common><?php echo("$s_php_menu_name");?></textarea>
 <!--<input type=text name=text_menu_title size=97 value="<?php echo("$s_php_menu_name"); ?>" maxlength=300 class=text_common>-->
@@ -352,7 +377,7 @@ else
 
 <?php// if( $s_is_container ){?>
 <tr>        
-<td width=137>Приоритет в списке</td>
+<td width=137>РџСЂРёРѕСЂРёС‚РµС‚ РІ СЃРїРёСЃРєРµ</td>
 <td><input type=text cols=5 name=priority value="<?php echo("$s_priority"); ?>" maxlength=5 class=text_common></td>
 </tr>
 <?php// } ?>
@@ -371,14 +396,14 @@ else
 ?>
 
 <tr>
-<td width=137>Анонс</td>
+<td width=137>РђРЅРѕРЅСЃ</td>
 <td>
 <textarea cols=100 name=text_name rows=2 maxlength=1000 class=text_common><?php echo("$s_name");?></textarea>
 </td>
 </tr>
 
 <tr>
-<td width=137>Дата занесения</td>
+<td width=137>Р”Р°С‚Р° Р·Р°РЅРµСЃРµРЅРёСЏ</td>
 <td><input type=text size=97 name=text_date value="<?php echo("$s_entry_date");?>" maxlength=300 class=text_common></td>
 </tr>
 
@@ -395,7 +420,7 @@ if($edit_type == 2)
 ?>
 
 <?php
-/*-------------------------------------Редактируем изображения--------------------------------------*/
+/*-------------------------------------Р РµРґР°РєС‚РёСЂСѓРµРј РёР·РѕР±СЂР°Р¶РµРЅРёСЏ--------------------------------------*/
 $droot = opendir("$record_path");
 $radio_number=1;
 
@@ -406,7 +431,7 @@ $radio_number=1;
    {
     if( !is_dir("$record_path/$root_entry") )
     {
-     /*Нашли файл*/
+     /*РќР°С€Р»Рё С„Р°Р№Р»*/
      $file_extension = substr($root_entry, -10); 
      $vid_ext = substr($root_entry, -3); 
      if( ($file_extension == "_small.jpg") || ($vid_ext == "avi") || ($vid_ext == "mpg")
@@ -417,7 +442,7 @@ $radio_number=1;
 <tr> 
 <td width=137><?php echo("/$record_site_path/$root_entry") ?>
 <br>
-<a href="<?php echo("$PHP_SELF?dir=$dir&r_id=$r_id&edit_type=$edit_type&delete_picture=$base_path/$record_site_path/$root_entry");?>">Удалить</a>
+<a href="<?php echo("$PHP_SELF?dir=$dir&r_id=$r_id&edit_type=$edit_type&delete_picture=$base_path/$record_site_path/$root_entry");?>">РЈРґР°Р»РёС‚СЊ</a>
 </td>
 <td> 
 <br>
@@ -435,7 +460,7 @@ $radio_number=1;
 ?>
 <input type=radio Name="menu_pic" value="<?php echo("$record_site_path/$root_entry"); ?>" id="menupic"
 <?php
- if($s_menu_pic_path == "$record_site_path/$root_entry" ) echo("checked"); else echo("unchecked"); ?>>&nbsp;<label for="menupic">Поместить в заголовок</label>
+ if($s_menu_pic_path == "$record_site_path/$root_entry" ) echo("checked"); else echo("unchecked"); ?>>&nbsp;<label for="menupic">РџРѕРјРµСЃС‚РёС‚СЊ РІ Р·Р°РіРѕР»РѕРІРѕРє</label>
 <?php }?>
 </td>
 </tr>
@@ -450,7 +475,7 @@ closedir($droot);
 ?>
  
 <tr> 
-<td width=137><br>Добавить изображение или видео.<br>Файлы .jpg .avi .mpg .wmv</td>
+<td width=137><br>Р”РѕР±Р°РІРёС‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РёР»Рё РІРёРґРµРѕ.<br>Р¤Р°Р№Р»С‹ .jpg .avi .mpg .wmv</td>
 <td> 
 <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
 <input type="file" size=50 name="new_picture" maxlength=255 class=text_common>
@@ -471,7 +496,416 @@ closedir($droot);
  <tr>
  <td width=180>
 
-<input type="Submit" name="submit_page" value="Добавить/изменить" class=text_common>
+<input type="Submit" name="submit_page" value="Р”РѕР±Р°РІРёС‚СЊ/РёР·РјРµРЅРёС‚СЊ" class=text_common>
+
+ </td>
+ </tr>
+ </table>
+
+</td>
+</tr>
+<?php } ?>
+
+</table>
+  </form>
+
+<?php }//after delete page ?>
+
+</body>
+</html>
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+</head>
+
+<?php
+
+if($delete_page)
+{
+ //ГЏГ°Г®ГўГҐГ°ГЁГІГј, ГҐГ±ГІГј Г«ГЁ ГЇГ®ГІГ®Г¬ГЄГЁ
+
+ $result = mysql_query("SELECT * FROM records WHERE parent_id=$r_id",$db);
+ if( mysql_num_rows($result) )
+ {
+  echo("ГЌГҐГ«ГјГ§Гї ГіГ¤Г Г«ГЁГІГј ГЅГІГі Г§Г ГЇГЁГ±Гј, ГІГ ГЄ ГЄГ ГЄ Г®Г­Г  Г±Г®Г¤ГҐГ°Г¦ГЁГІ ГўГ«Г®Г¦ГҐГ­Г­Г»ГҐ Г§Г ГЇГЁГ±ГЁ");
+ }
+ else
+ {
+  //ГЌГіГ¦Г­Г® ГЇГ®ГІГҐГ°ГҐГІГј ГЄГ ГІГ Г«Г®ГЈ ГЁ ГўГ±ГҐ ГЄГ Г°ГІГЁГ­ГЄГЁ
+
+  $droot = opendir("$record_path");
+  if(!$droot)
+  {
+   echo("Can not open directory to delete");
+  }
+  else
+  {
+   while($root_entry = readdir($droot)) 
+   {
+    if( $root_entry != '.' &&
+        $root_entry != '..')
+    {
+     unlink("$record_path/$root_entry");
+    }
+   }
+  }
+  closedir($droot);
+
+//Г‡Г ГЇГ°ГҐГ№Г ГҐГ¬ ГіГ¤Г Г«ГҐГ­ГЁГҐ Г­ГҐГЄГ®ГІГ®Г°Г»Гµ Г°Г Г§Г¤ГҐГ«Г®Гў
+
+  if( ($r_id!=2) && ($r_id!=3) )
+  {
+   rmdir("$record_path");
+
+   $result = mysql_query("DELETE FROM records WHERE id=$r_id");
+   echo("<center>Г‘ГІГ°Г Г­ГЁГ¶Г  ГЎГ»Г«Г  ГіГ¤Г Г«ГҐГ­Г .</center>") ;
+  }
+  else
+  {
+   echo("ГЌГҐГ«ГјГ§Гї ГіГ¤Г Г«ГїГІГј ГЅГІГ®ГІ Г°Г Г§Г¤ГҐГ« Г·ГҐГ°ГҐГ§ web-ГЁГ­ГІГҐГ°ГґГҐГ©Г±. ГЋГЎГ°Г ГІГЁГІГҐГ±Гј ГЄ Г°Г Г§Г°Г ГЎГ®ГІГ·ГЁГЄГі.");
+  }
+ }
+} 
+else
+{
+?>
+
+<body topmargin=0 marginwidth=4 leftmargin=4 marginheight=0 bgcolor=#E1E1E1 class=text_common>
+<?php
+
+/*----------------------------------------ГЋГЎГ­Г®ГўГ«ГїГҐГ¬ ГІГҐГЄГ±ГІ-------------------------------------------*/
+
+ if($text_name || $text_content || $text_menu_title || $priority || $text_date )
+ {
+  if( $lang =="ru")
+  {
+   $result = mysql_query("UPDATE records SET ENTRY_DATE='$text_date', PRIORITY='$priority', NAME='$text_name', CONTENT='$text_content', PHP_MENU_NAME='$text_menu_title', EDIT_DATE = NOW() WHERE id=$r_id");
+  }
+
+  if( $lang == "en")
+  {
+   $result = mysql_query("UPDATE records SET ENTRY_DATE='$text_date', PRIORITY='$priority', NAME_EN='$text_name', CONTENT_EN='$text_content', PHP_MENU_NAME_EN='$text_menu_title', EDIT_DATE = NOW() WHERE id=$r_id");
+  }
+
+}
+/*--------------------------------------------------------------------------------------------------*/
+  $result = mysql_query("SELECT ID, PARENT_ID, IS_CONTAINER, PRIORITY, PHP_MENU_STATUS, PHP_MENU_NAME, PHP_MENU_NAME_EN, ENTRY_DATE, EDIT_DATE, LINK_MENU_FLAG, NAME, NAME_EN, CONTENT, CONTENT_EN, MENU_PIC_PATH FROM records WHERE id=$r_id ORDER BY priority",$db)
+   or die("Invalid query: " . mysql_error());
+
+  $myrow = mysql_fetch_array($result) ;
+  $s_id = $myrow["ID"];
+  $s_parent_id = $myrow["PARENT_ID"];
+  $s_is_container = $myrow["IS_CONTAINER"];
+  $s_priority = $myrow["PRIORITY"];
+  $s_php_menu_status = $myrow["PHP_MENU_STATUS"];
+  $s_php_menu_name;
+  $s_entry_date = $myrow["ENTRY_DATE"];
+  $s_edit_date = $myrow["EDIT_DATE"];
+  $s_link_menu_flag = $myrow["LINK_MENU_FLAG"];
+  $s_name;
+  $s_content;
+  $s_menu_pic_path = $myrow["MENU_PIC_PATH"];
+
+  if( $lang == "ru")
+  {
+   $s_php_menu_name = $myrow["PHP_MENU_NAME"];
+   $s_name = $myrow["NAME"];
+   $s_content = $myrow["CONTENT"];
+  }
+
+  if( $lang == "en")
+  {
+   $s_php_menu_name = $myrow["PHP_MENU_NAME_EN"];
+   $s_name = $myrow["NAME_EN"];
+   $s_content = $myrow["CONTENT_EN"];
+  }
+
+
+/*ГЊГҐГ­ГїГҐГ¬ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г­Г»Г© Г±ГІГ ГІГіГ±.*/
+  $checkbox_status;
+  if( $IS_CONTAINER_CHECKBOX_POSITIVE )
+{
+   $checkbox_status = 1;
+}
+  else
+{
+   $checkbox_status = 0;
+}
+  
+  if( ($data_sent) && ( $s_is_container != $checkbox_status) && ($edit_type == 1) )
+  {
+   //ГЏГ°Г®ГўГҐГ°ГїГҐГ¬, Г­ГҐГІ Г«ГЁ Гі Г§Г ГЇГЁГ±ГЁ ГЇГ®ГІГ®Г¬ГЄГ®Гў
+   $test_children = mysql_query("SELECT ID FROM records WHERE parent_id=$r_id",$db)
+    or die("Invalid query: " . mysql_error());
+
+   if ( mysql_num_rows($test_children) ) 
+   {
+    echo("<b><font color=red>Г‘ГІГ°Г Г­ГЁГ¶Г  Г±Г®Г¤ГҐГ°Г¦ГЁГІ ГўГ«Г®Г¦ГҐГ­Г­Г»ГҐ Г±ГІГ°Г Г­ГЁГ¶Г», ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГҐ Г±ГІГ ГІГіГ±Г  Г®ГІГ¬ГҐГ­ГҐГ­Г®.</font></b>");
+   }
+   else
+   {
+    $result = mysql_query("UPDATE records SET IS_CONTAINER=$checkbox_status, PHP_MENU_STATUS=0  WHERE id=$r_id");
+    $s_is_container = $checkbox_status;
+   }
+  }
+
+?>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr height=5><td></td></tr>
+<!--<tr><td align=center>Г‘Г®Г§Г¤Г Г­Г :<?php echo" $s_entry_date" ?>, Г€Г§Г¬ГҐГ­ГҐГ­Г :<?php echo" $s_edit_date" ?></td></tr>-->
+<tr height=5><td></td></tr>
+<tr><td align=center>
+<a href="<?php echo"$PHP_SELF?edit_type=1&r_id=$s_id&dir=$dir&lang=$lang" ?>">
+[ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј ГІГҐГЄГ±ГІ]
+</a>&nbsp;&nbsp;
+<a href="<?php echo"$PHP_SELF?edit_type=2&r_id=$s_id&dir=$dir&lang=$lang" ?>">
+[ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГї]
+</a>&nbsp;&nbsp;
+
+<form MARGINHEIGHT=0 enctype="multipart/form-data" method="post" action="<?php echo"$PHP_SELF?edit_type=$edit_type&r_id=$s_id&data_sent=1&dir=$dir&lang=$lang" ?>" >
+
+<?php if( $s_is_container ) $checkbox_status = "checked"; else $checkbox_status = "unchecked"; ?>
+<INPUT TYPE=CHECKBOX NAME="IS_CONTAINER_CHECKBOX_POSITIVE" <?php echo"$checkbox_status";?> >
+&nbsp;Г‘Г®Г¤ГҐГ°Г¦ГЁГІ ГЇГ®Г¤Г°Г Г§Г¤ГҐГ«Г»&nbsp;&nbsp;
+<a href="<?php echo"$PHP_SELF?edit_type=1&r_id=$s_id&dir=$dir&lang=ru" ?>">
+<img src="img/rus.gif" border=0></a>
+&nbsp;&nbsp;
+<a href="<?php echo"$PHP_SELF?edit_type=1&r_id=$s_id&dir=$dir&lang=en" ?>">
+<img src="img/eng.gif" border=0></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="<?php echo("ask_delete.php?dir=$dir&edit_type=$edit_type&r_id=$r_id");?>"><font color=red>Г“Г¤Г Г«ГЁГІГј Г±ГІГ°Г Г­ГЁГ¶Гі</font></a>
+</td></tr>
+<tr><td align=left>
+<!--<b>ГЌГ Г±ГІГ°Г®Г©ГЄГЁ Г±ГІГ°Г Г­ГЁГ¶Г» <?php echo"\"$s_php_menu_name\"" ?></b>-->
+</td></tr>
+
+<tr height=5><td></td></tr></table>
+<!--<form MARGINHEIGHT=0 enctype="multipart/form-data" method="post" action="<?php echo"$PHP_SELF?edit_type=$edit_type&r_id=$s_id&data_sent=1&dir=$dir&lang=$lang" ?>" >-->
+<?php
+
+/*----------------------------------------ГЋГЎГ­Г®ГўГЁГ«ГЁ ГІГҐГЄГ±ГІ-------------------------------------------*/
+
+ if($text_name || $text_content || $text_menu_title || $priority || $text_date)
+ {
+  echo("<center>Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї ГЁГ§Г¬ГҐГ­ГҐГ­Г </center>");
+ }
+
+/*-------------------------------ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г§Г ГЄГ Г·Г Г­Г­ГіГѕ ГЄГ Г°ГІГЁГ­ГЄГі-----------------------------------*/
+//Г‘Г®ГµГ°Г Г­ГїГҐГ¬ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГѕ Г® ГЇГіГІГЁ ГЄ ГЄГ Г°ГІГЁГ­ГЄГҐ Г§Г ГЈГ®Г«Г®ГўГЄГ .
+ if($menu_pic)
+ { 
+  $result = mysql_query("UPDATE records SET MENU_PIC_PATH='$menu_pic' WHERE id=$s_id");
+  $s_menu_pic_path = $menu_pic;
+ }
+// Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЄГ Г°ГІГЁГ­ГЄГЁ
+ if(is_uploaded_file($new_picture))
+ {
+  $file_extension = substr($new_picture_name, -3);
+  if( ($file_extension == "jpg") || ($file_extension == "JPG") )
+  {
+//ГЌГ Г¤Г® ГіГ·ГЁГІГ»ГўГ ГІГј Г·ГІГ® ГґГ®ГІГ  Г¬Г®Г¦ГҐГІ ГЎГ»ГІГј ГўГҐГ°ГІГЁГЄГ Г«ГјГ­Г®Г©...
+
+   $FileNoExtension = substr($new_picture_name, 0, -4);
+   //Г„Г®ГЎГ ГўГ«ГїГҐГ¬ _large ГЄ ГЁГ¬ГҐГ­ГЁ ГґГ Г©Г«Г 
+   //ГЏГ«Г®ГµГ®Г© Г±ГЇГ®Г±Г®ГЎ Г±Г®ГҐГ¤ГЁГ­ГЁГІГј Г±ГІГ°Г®ГЄГЁ
+   $filename_large = join("", array($record_path, '/', $FileNoExtension, "_large.jpg") );
+   copy($new_picture, $filename_large);
+   //Г’ГҐГЇГҐГ°Гј ГґГ Г©Г« ГҐГ±ГІГј Г­Г  Г±ГҐГ°ГўГҐГ°ГҐ, Г¬Г®Г¦Г­Г® Г± Г­ГЁГ¬ Г°Г ГЎГ®ГІГ ГІГј
+
+   // ГЏГ®Г«ГіГ·Г ГҐГ¬ Г°Г Г§Г¬ГҐГ° ГЁГ±ГµГ®Г¤Г­Г®ГЈГ® ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГї
+   list($width, $height) = GetImageSize($filename_large);
+
+   if( ($width > 520) )
+   {
+    //ГѓГ°ГіГ§ГїГІ ГЎГ®Г«ГјГёГіГѕ ГЄГ Г°ГІГЁГ­ГЄГі, Г­Г Г¤Г® Г°ГҐГ§Г ГІГј!
+    $new_width = 520;
+    $new_height= round(520*$height/$width);
+    $image_large = ImageCreate($new_width, $new_height);//ImageCreateTrueColor - ГЎГ®Г«ГҐГҐ ГЇГ°Г ГўГЁГ«ГјГ­Г®
+    $image_old = ImageCreateFromJpeg($filename_large);
+
+    //ImageCopyResampled - ГЎГ®Г«ГҐГҐ ГЇГ°Г ГўГЁГ«ГјГ­Г®
+    ImageCopyResized($image_large, $image_old, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+    unlink($filename_large);
+    ImageJpeg($image_large, $filename_large, 80);
+   }
+
+   // Г„Г®ГЎГ ГўГ«ГїГҐГ¬ ГіГ¬ГҐГ­ГјГёГҐГ­Г­ГіГѕ ГЄГ®ГЇГЁГѕ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГї
+   list($width, $height) = GetImageSize($filename_large);
+   $new_width = 133;
+   $new_height= round(133*$height/$width);
+
+
+   $FileNoExtension = substr($filename_large, 0, -10);
+   $filename_small = join("", array( $FileNoExtension, "_small.jpg") );
+
+   $image_small = ImageCreate($new_width, $new_height);//ImageCreateTrueColor - ГЎГ®Г«ГҐГҐ ГЇГ°Г ГўГЁГ«ГјГ­Г®
+   $image_old = ImageCreateFromJpeg($filename_large);
+   ImageCopyResized($image_small, $image_old, 0, 0, 0, 0, $new_width, $new_height, $width, $height);  
+   ImageJpeg($image_small, $filename_small, 80);
+   echo("<center>Г€Г§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ Г¤Г®ГЎГ ГўГ«ГҐГ­Г®</center>");
+  }
+
+//ГЉГ®ГЇГЁГ°Г®ГўГ Г­ГЁГҐ ГўГЁГ¤ГҐГ® Г°Г®Г«ГЁГЄГ 
+  if( ($file_extension == "wmv") || ($file_extension == "avi") || ($file_extension == "mpg")
+   || ($file_extension == "WMV") || ($file_extension == "AVI") || ($file_extension == "MPG") )
+  {
+   $video_name = join("", array($record_path, '/', $new_picture_name) );
+   copy($new_picture, $video_name);
+  }
+
+ }
+
+// Г“Г¤Г Г«ГҐГ­ГЁГҐ ГЄГ Г°ГІГЁГ­ГЄГЁ
+
+ if($delete_picture)
+ {
+  if(file_exists("$delete_picture"))
+  {
+   unlink("$delete_picture");
+   $delete_picture_begin = substr($delete_picture, 0, (strlen($delete_picture)-10) ); 
+   $delete_picture_construst = join("", array($delete_picture_begin, "_large.jpg") );
+   unlink("$delete_picture_construst");
+  }
+  echo("<center>Г€Г§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ ГіГ¤Г Г«ГҐГ­Г®</center>"); ///???DIR
+ }
+?>
+
+<table border=0 cellspacing=0 cellpadding=0 class=text_common>
+
+<?php
+ if($edit_type == 1)
+ {
+/*----------------------------------------ГђГҐГ¤Г ГЄГІГЁГ°ГіГҐГ¬ ГІГҐГЄГ±ГІ-----------------------------------------*/
+?>
+
+<tr>
+<td width=137>Г‡Г ГЈГ®Г«Г®ГўГ®ГЄ</td>
+<td>
+<textarea cols=100 name=text_menu_title rows=1 maxlength=1000 class=text_common><?php echo("$s_php_menu_name");?></textarea>
+<!--<input type=text name=text_menu_title size=97 value="<?php echo("$s_php_menu_name"); ?>" maxlength=300 class=text_common>-->
+</td>
+</tr>
+
+<?php// if( $s_is_container ){?>
+<tr>        
+<td width=137>ГЏГ°ГЁГ®Г°ГЁГІГҐГІ Гў Г±ГЇГЁГ±ГЄГҐ</td>
+<td><input type=text cols=5 name=priority value="<?php echo("$s_priority"); ?>" maxlength=5 class=text_common></td>
+</tr>
+<?php// } ?>
+
+<?php
+/*
+ if( $s_is_container )
+  {
+   $checkbox_status = "checked";
+  }
+  else
+  {
+   $checkbox_status = "unchecked";
+  }
+*/
+?>
+
+<tr>
+<td width=137>ГЂГ­Г®Г­Г±</td>
+<td>
+<textarea cols=100 name=text_name rows=2 maxlength=1000 class=text_common><?php echo("$s_name");?></textarea>
+</td>
+</tr>
+
+<tr>
+<td width=137>Г„Г ГІГ  Г§Г Г­ГҐГ±ГҐГ­ГЁГї</td>
+<td><input type=text size=97 name=text_date value="<?php echo("$s_entry_date");?>" maxlength=300 class=text_common></td>
+</tr>
+
+<tr>
+<td colspan=2>
+<textarea cols=130 name=text_content rows=27 maxlength=10000 class=text_edit><?php echo("$s_content");?></textarea>
+</td>
+</tr>
+
+<?php
+}
+if($edit_type == 2)
+{
+?>
+
+<?php
+/*-------------------------------------ГђГҐГ¤Г ГЄГІГЁГ°ГіГҐГ¬ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГї--------------------------------------*/
+$droot = opendir("$record_path");
+$radio_number=1;
+
+ while($root_entry = readdir($droot)) 
+ {
+  if( $root_entry != '.' &&
+      $root_entry != '..')
+   {
+    if( !is_dir("$record_path/$root_entry") )
+    {
+     /*ГЌГ ГёГ«ГЁ ГґГ Г©Г«*/
+     $file_extension = substr($root_entry, -10); 
+     $vid_ext = substr($root_entry, -3); 
+     if( ($file_extension == "_small.jpg") || ($vid_ext == "avi") || ($vid_ext == "mpg")
+      || ($vid_ext == "wmv") || ($vid_ext == "AVI") || ($vid_ext == "MPG") || ($vid_ext == "WMV") )
+     {
+
+?>
+<tr> 
+<td width=137><?php echo("/$record_site_path/$root_entry") ?>
+<br>
+<a href="<?php echo("$PHP_SELF?dir=$dir&r_id=$r_id&edit_type=$edit_type&delete_picture=$base_path/$record_site_path/$root_entry");?>">Г“Г¤Г Г«ГЁГІГј</a>
+</td>
+<td> 
+<br>
+<img src="
+<?php
+      if($file_extension == "_small.jpg")
+       echo("/$record_site_path/$root_entry"); 
+      else
+       echo("/img/video_file.jpg"); 
+?>">
+
+<?php
+      if($file_extension == "_small.jpg")
+      {
+?>
+<input type=radio Name="menu_pic" value="<?php echo("$record_site_path/$root_entry"); ?>" id="menupic"
+<?php
+ if($s_menu_pic_path == "$record_site_path/$root_entry" ) echo("checked"); else echo("unchecked"); ?>>&nbsp;<label for="menupic">ГЏГ®Г¬ГҐГ±ГІГЁГІГј Гў Г§Г ГЈГ®Г«Г®ГўГ®ГЄ</label>
+<?php }?>
+</td>
+</tr>
+<?php
+     }
+
+    }
+   }	
+ }
+closedir($droot);
+
+?>
+ 
+<tr> 
+<td width=137><br>Г„Г®ГЎГ ГўГЁГІГј ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ ГЁГ«ГЁ ГўГЁГ¤ГҐГ®.<br>Г”Г Г©Г«Г» .jpg .avi .mpg .wmv</td>
+<td> 
+<input type="hidden" name="MAX_FILE_SIZE" value="10000000">
+<input type="file" size=50 name="new_picture" maxlength=255 class=text_common>
+</td></tr>
+<tr height=5><td colspan=2></td></tr>
+<?php
+}
+?>
+<tr height=5><td colspan=2></td></tr>
+
+<?php if($edit_type != 1)
+  {     ?>
+
+<tr>
+<td width=137></td>
+<td>
+ <table border=0 cellspacing=0 cellpadding=0 class=text_common>
+ <tr>
+ <td width=180>
+
+<input type="Submit" name="submit_page" value="Г„Г®ГЎГ ГўГЁГІГј/ГЁГ§Г¬ГҐГ­ГЁГІГј" class=text_common>
 
  </td>
  </tr>
