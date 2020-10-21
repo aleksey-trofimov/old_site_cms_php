@@ -2,7 +2,7 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
 
-<title>Туристическая фирма Палома Турс</title>
+<title>Г’ГіГ°ГЁГ±ГІГЁГ·ГҐГ±ГЄГ Гї ГґГЁГ°Г¬Г  ГЏГ Г«Г®Г¬Г  Г’ГіГ°Г±</title>
 
 <style type="text/css">
 body{font-family:Arial,Helvetica,sans-serif;color:#9F2215;background:#FDDDBD; padding-top: 10px;}
@@ -41,7 +41,7 @@ A { COLOR: #000000; TEXT-DECORATION: underline}
 
 
 
-/*Стили для отображения меню*/
+/*Г‘ГІГЁГ«ГЁ Г¤Г«Гї Г®ГІГ®ГЎГ°Г Г¦ГҐГ­ГЁГї Г¬ГҐГ­Гѕ*/
 ul.mapps { font-size:11pt; font-weight:bold; margin: 0px; padding: 0px; width: 100%; list-style: none; background: #ffffff;}
 ul li ul li.mapps { font-size:10pt; font-weight:bold; padding-bottom: 5px; margin: 0px; padding-left: 5px; TEXT-DECORATION: none; background: #FFFFFF;  }
 
@@ -49,7 +49,7 @@ ul li a.mapps_text { vertical-align: top; width: 100%; display: block; padding-l
 ul li ul li a.mapps_text { width: 100%; display: block; padding: 0px; }
 
   
-/*Раскрашиваем буковки */
+/*ГђГ Г±ГЄГ°Г ГёГЁГўГ ГҐГ¬ ГЎГіГЄГ®ГўГЄГЁ */
 ul li a:hover.mapps_text { color: #ffffff; background: #cccccc;}
 ul li a:visited.mapps_text { color: #ffffff;}
 ul li a:active.mapps_text { color: #ffffff; background: #4975C1;}
@@ -77,7 +77,7 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
   <tr>   
    <td width="5" border="0" background="/common/img/pskov_border_left.jpg"></td>
    <td width="250" border="0" valign="top" class="menu_text_pskov" style="background: url(../common/img/pskov_gradient.jpg) repeat-x;">
-    <font class="large_text">Добро пожаловать<br>в Псковский регион!</font>
+    <font class="large_text">Г„Г®ГЎГ°Г® ГЇГ®Г¦Г Г«Г®ГўГ ГІГј<br>Гў ГЏГ±ГЄГ®ГўГ±ГЄГЁГ© Г°ГҐГЈГЁГ®Г­!</font>
 <div style="height: 5px;"><!-- --></div>
 <?php
  $db = mysql_connect("localhost", " ", " ");
@@ -86,7 +86,7 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
  $variants_list = mysql_query("SELECT id, PHP_MENU_NAME, is_container FROM records WHERE parent_id=6 ORDER BY priority",$db)
    or die("Invalid query: " . mysql_error());
 
-//Отображаем список вариантов туров
+//ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г±ГЇГЁГ±Г®ГЄ ГўГ Г°ГЁГ Г­ГІГ®Гў ГІГіГ°Г®Гў
 
  if( $variants_list )
  {
@@ -103,16 +103,16 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
  }
 ?>
 
-<!--С древнейших времен славится 
-город красотой. "А о Плескове-
-граде не обретается быть 
-вспомянуто, от кого бысть создан и 
-которыми людьми". Псков - один из 
-древнейших городов Руси, 
-который упоминается в "Повести 
-временных лет" в 903 году в связи с 
-женитьбой князя Игоря, сына 
-Рюрика, на псковитянке Ольге. -->
+<!--Г‘ Г¤Г°ГҐГўГ­ГҐГ©ГёГЁГµ ГўГ°ГҐГ¬ГҐГ­ Г±Г«Г ГўГЁГІГ±Гї 
+ГЈГ®Г°Г®Г¤ ГЄГ°Г Г±Г®ГІГ®Г©. "ГЂ Г® ГЏГ«ГҐГ±ГЄГ®ГўГҐ-
+ГЈГ°Г Г¤ГҐ Г­ГҐ Г®ГЎГ°ГҐГІГ ГҐГІГ±Гї ГЎГ»ГІГј 
+ГўГ±ГЇГ®Г¬ГїГ­ГіГІГ®, Г®ГІ ГЄГ®ГЈГ® ГЎГ»Г±ГІГј Г±Г®Г§Г¤Г Г­ ГЁ 
+ГЄГ®ГІГ®Г°Г»Г¬ГЁ Г«ГѕГ¤ГјГ¬ГЁ". ГЏГ±ГЄГ®Гў - Г®Г¤ГЁГ­ ГЁГ§ 
+Г¤Г°ГҐГўГ­ГҐГ©ГёГЁГµ ГЈГ®Г°Г®Г¤Г®Гў ГђГіГ±ГЁ, 
+ГЄГ®ГІГ®Г°Г»Г© ГіГЇГ®Г¬ГЁГ­Г ГҐГІГ±Гї Гў "ГЏГ®ГўГҐГ±ГІГЁ 
+ГўГ°ГҐГ¬ГҐГ­Г­Г»Гµ Г«ГҐГІ" Гў 903 ГЈГ®Г¤Гі Гў Г±ГўГїГ§ГЁ Г± 
+Г¦ГҐГ­ГЁГІГјГЎГ®Г© ГЄГ­ГїГ§Гї Г€ГЈГ®Г°Гї, Г±Г»Г­Г  
+ГђГѕГ°ГЁГЄГ , Г­Г  ГЇГ±ГЄГ®ГўГЁГІГїГ­ГЄГҐ ГЋГ«ГјГЈГҐ. -->
 
 <div style="height: 10px;"><!-- --></div>
 <img src="/common/img/pskov_menu_pic.jpg" />
@@ -151,7 +151,7 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
   <img class="system" src="/common/img/pskov_contact_down.jpg" width="260">
 <br><br>
 <center>
-<a href="http://www.old-pskov.ru" target="_blank" title="Древний город Псков"><img src="http://www.old-pskov.ru/banner/120x60.gif" width="120" height="60" alt="Древний Псков" border="0"></a>
+<a href="http://www.old-pskov.ru" target="_blank" title="Г„Г°ГҐГўГ­ГЁГ© ГЈГ®Г°Г®Г¤ ГЏГ±ГЄГ®Гў"><img src="http://www.old-pskov.ru/banner/120x60.gif" width="120" height="60" alt="Г„Г°ГҐГўГ­ГЁГ© ГЏГ±ГЄГ®Гў" border="0"></a>
  </td>
 
 
@@ -169,7 +169,7 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
  $db = mysql_connect("localhost", " ", " ");
  mysql_select_db("paloma",$db);
 
-//На входе идентификатор варианта туров. Отображаем туры из конкретного варианта
+//ГЌГ  ГўГµГ®Г¤ГҐ ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г° ГўГ Г°ГЁГ Г­ГІГ  ГІГіГ°Г®Гў. ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ ГІГіГ°Г» ГЁГ§ ГЄГ®Г­ГЄГ°ГҐГІГ­Г®ГЈГ® ГўГ Г°ГЁГ Г­ГІГ 
 if( (!$parent) && (!$tour))
 {
  $var_list = mysql_query("SELECT id, name, PHP_MENU_NAME, is_container FROM records WHERE parent_id=6 ORDER BY priority",$db)
@@ -179,8 +179,8 @@ if( (!$parent) && (!$tour))
 <div style="height: 10px;"></div>
 
 <?php
-//На входе имеем идентификатор. Отображаем его контент и потомков.
-//Вычисляем путь к картинкам.
+//ГЌГ  ГўГµГ®Г¤ГҐ ГЁГ¬ГҐГҐГ¬ ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г°. ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ ГҐГЈГ® ГЄГ®Г­ГІГҐГ­ГІ ГЁ ГЇГ®ГІГ®Г¬ГЄГ®Гў.
+//Г‚Г»Г·ГЁГ±Г«ГїГҐГ¬ ГЇГіГІГј ГЄ ГЄГ Г°ГІГЁГ­ГЄГ Г¬.
 
 if($var_id)
 {
@@ -192,12 +192,12 @@ if($var_id)
  $var_data_parent = $var_data["parent_id"];
  $var_web_path = "";
 
- //Строим путь к каталогу записи
+ //Г‘ГІГ°Г®ГЁГ¬ ГЇГіГІГј ГЄ ГЄГ ГІГ Г«Г®ГЈГі Г§Г ГЇГЁГ±ГЁ
  if($var_id != 6)
  { 
   if($var_data_parent != 6)
   {
-   //Имеем как минимум второй уровень вложенности, собираем информацию о родителе записи.
+   //Г€Г¬ГҐГҐГ¬ ГЄГ ГЄ Г¬ГЁГ­ГЁГ¬ГіГ¬ ГўГІГ®Г°Г®Г© ГіГ°Г®ГўГҐГ­Гј ГўГ«Г®Г¦ГҐГ­Г­Г®Г±ГІГЁ, Г±Г®ГЎГЁГ°Г ГҐГ¬ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГѕ Г® Г°Г®Г¤ГЁГІГҐГ«ГҐ Г§Г ГЇГЁГ±ГЁ.
    $var_query = mysql_query("SELECT id, parent_id FROM records WHERE id=$var_data_parent",$db)
     or die("Invalid query: " . mysql_error());
    $var_parent1 = mysql_fetch_array($var_query);
@@ -205,7 +205,7 @@ if($var_id)
  
    if($var_parent1_parent != 6)
    {
-    //Имеем как минимум третий уровень вложенности, собираем информацию о родителе записи.
+    //Г€Г¬ГҐГҐГ¬ ГЄГ ГЄ Г¬ГЁГ­ГЁГ¬ГіГ¬ ГІГ°ГҐГІГЁГ© ГіГ°Г®ГўГҐГ­Гј ГўГ«Г®Г¦ГҐГ­Г­Г®Г±ГІГЁ, Г±Г®ГЎГЁГ°Г ГҐГ¬ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГѕ Г® Г°Г®Г¤ГЁГІГҐГ«ГҐ Г§Г ГЇГЁГ±ГЁ.
     $var_query = mysql_query("SELECT id, parent_id FROM records WHERE id=$var_parent1_parent",$db)
      or die("Invalid query: " . mysql_error());
     $var_parent2 = mysql_fetch_array($var_query);
@@ -213,7 +213,7 @@ if($var_id)
  
     if($var_parent2_parent != 6)
     {
-     //Имеем четвертый уровень вложенности, собираем информацию о родителе записи.
+     //Г€Г¬ГҐГҐГ¬ Г·ГҐГІГўГҐГ°ГІГ»Г© ГіГ°Г®ГўГҐГ­Гј ГўГ«Г®Г¦ГҐГ­Г­Г®Г±ГІГЁ, Г±Г®ГЎГЁГ°Г ГҐГ¬ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГѕ Г® Г°Г®Г¤ГЁГІГҐГ«ГҐ Г§Г ГЇГЁГ±ГЁ.
      $var_query = mysql_query("SELECT id, parent_id FROM records WHERE id=$var_parent2_parent",$db)
       or die("Invalid query: " . mysql_error());
      $var_parent3 = mysql_fetch_array($var_query);
@@ -241,13 +241,13 @@ if($var_id)
   $var_web_path = "/3/6";
  }
  
-////////////////////////////////////Отображаем заголовок, картинки и контент
+////////////////////////////////////ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г§Г ГЈГ®Г«Г®ГўГ®ГЄ, ГЄГ Г°ГІГЁГ­ГЄГЁ ГЁ ГЄГ®Г­ГІГҐГ­ГІ
 
  echo("<div class=\"tour_name\">$var_data_name</div>");
 
- if( $var_id == 0 ) //Не отображаем картинки вверху страницы вообще
+ if( $var_id == 0 ) //ГЌГҐ Г®ГІГ®ГЎГ°Г Г¦Г ГҐГ¬ ГЄГ Г°ГІГЁГ­ГЄГЁ ГўГўГҐГ°ГµГі Г±ГІГ°Г Г­ГЁГ¶Г» ГўГ®Г®ГЎГ№ГҐ
  {
-  //Отображаем мелкие картинки только если отображается не страна  
+  //ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г¬ГҐГ«ГЄГЁГҐ ГЄГ Г°ГІГЁГ­ГЄГЁ ГІГ®Г«ГјГЄГ® ГҐГ±Г«ГЁ Г®ГІГ®ГЎГ°Г Г¦Г ГҐГІГ±Гї Г­ГҐ Г±ГІГ°Г Г­Г   
   $droot = opendir("$server_path$var_web_path");
   $counter=0;
   while( ($root_entry = readdir($droot)) && ($counter < 3)) 
@@ -261,7 +261,7 @@ if($var_id)
      $vid_ext = substr($root_entry, -3); 
      if( $file_extension == "_small.jpg")
      {
-      //Нашли картинку
+      //ГЌГ ГёГ«ГЁ ГЄГ Г°ГІГЁГ­ГЄГі
       echo("<img src=\"$var_web_path/$root_entry\" height=\"127\">&nbsp;&nbsp;&nbsp;");
       $counter++;
      }
@@ -272,9 +272,9 @@ if($var_id)
 
  echo("$var_data_content");
 
-//Отображаем потомков///////////////////////////////////////////////////////
+//ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ ГЇГ®ГІГ®Г¬ГЄГ®Гў///////////////////////////////////////////////////////
 
-//Собираем информацию о потомках вызванной записи.
+//Г‘Г®ГЎГЁГ°Г ГҐГ¬ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГѕ Г® ГЇГ®ГІГ®Г¬ГЄГ Гµ ГўГ»Г§ГўГ Г­Г­Г®Г© Г§Г ГЇГЁГ±ГЁ.
  $var_query = mysql_query("SELECT id, name, content, PHP_MENU_NAME FROM records WHERE parent_id=$var_id ORDER BY priority",$db)
   or die("Invalid query: " . mysql_error());
 
@@ -306,7 +306,7 @@ if($var_id)
       $vid_ext = substr($root_entry, -3); 
       if( $file_extension == "_small.jpg")
       {
-       //Нашли картинку
+       //ГЌГ ГёГ«ГЁ ГЄГ Г°ГІГЁГ­ГЄГі
        echo("<img src=\"$var_web_path/$var_child_id/$root_entry\" height=\"127\">&nbsp;&nbsp;&nbsp;");
        $counter++;
       }
@@ -338,13 +338,13 @@ if($var_id)
 <!--
 <table border=0 cellpadding=0 cellspacing=0 bgcolor="#FDDDBD">
  <tr>
-  <td class="pskov_down_menu_text" align="center">ВЫБОР ТУРА</td>
+  <td class="pskov_down_menu_text" align="center">Г‚Г›ГЃГЋГђ Г’Г“ГђГЂ</td>
   <td width="2"><img src="/common/img/down_menu_splitter.gif"></td>
-  <td class="pskov_down_menu_text" align="center">СТРАНЫ</td>
+  <td class="pskov_down_menu_text" align="center">Г‘Г’ГђГЂГЌГ›</td>
   <td width="2"><img src="/common/img/down_menu_splitter.gif"></td>
-  <td class="pskov_down_menu_text" align="center">Горячие ПРЕДЛОЖЕНИЯ</td>
+  <td class="pskov_down_menu_text" align="center">ГѓГ®Г°ГїГ·ГЁГҐ ГЏГђГ…Г„Г‹ГЋГ†Г…ГЌГ€Гџ</td>
   <td width="2"><img src="/common/img/down_menu_splitter.gif"></td>
-  <td class="pskov_down_menu_text" align="center">Добро пожаловать в Псковский регион</td>
+  <td class="pskov_down_menu_text" align="center">Г„Г®ГЎГ°Г® ГЇГ®Г¦Г Г«Г®ГўГ ГІГј Гў ГЏГ±ГЄГ®ГўГ±ГЄГЁГ© Г°ГҐГЈГЁГ®Г­</td>
   <td width="2"><img src="/common/img/down_menu_splitter.gif"></td>
   <td class="pskov_down_menu_text" align="center">Welcome to Pskov</td>
  </tr>
@@ -355,24 +355,24 @@ if($var_id)
  <tr>
   <td class="pskov_down_menu_text" align="center">
 <a href="http://paloma.ellink.ru/browse/show_tours_type.php?var_id=151">
-ВЫБОР ТУРА
+Г‚Г›ГЃГЋГђ Г’Г“ГђГЂ
 </a>
 </td>
   <td width="2"><img src="/common/img/down_menu_splitter.gif"></td>
   <td class="pskov_down_menu_text" align="center">
 <a href="http://paloma.ellink.ru/browse/show_tours_type.php?count_id=101">
-СТРАНЫ
+Г‘Г’ГђГЂГЌГ›
 </a></td>
   <td width="2"><img src="/common/img/down_menu_splitter.gif"></td>
   <td class="pskov_down_menu_text" align="center">
 <a href="http://paloma.ellink.ru/browse/show_hot_type.php?var_id=164">
-Горячие ПРЕДЛОЖЕНИЯ
+ГѓГ®Г°ГїГ·ГЁГҐ ГЏГђГ…Г„Г‹ГЋГ†Г…ГЌГ€Гџ
 </a>
 </td>
   <td width="2"><img src="/common/img/down_menu_splitter.gif"></td>
   <td class="pskov_down_menu_text" align="center">
 <a href="http://paloma.ellink.ru/browse/show_pskov_type?var_id=6.php">
-Добро пожаловать в Псковский регион
+Г„Г®ГЎГ°Г® ГЇГ®Г¦Г Г«Г®ГўГ ГІГј Гў ГЏГ±ГЄГ®ГўГ±ГЄГЁГ© Г°ГҐГЈГЁГ®Г­
 </a>
 </td>
   <td width="2"><img src="/common/img/down_menu_splitter.gif"></td>
@@ -385,23 +385,6 @@ Welcome to Pskov
 </table>
 
 </center>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-7057359-11");
-pageTracker._trackPageview();
-} catch(err) {}</script><!--LiveInternet counter--><script type="text/javascript"><!--
-document.write("<a href='http://www.liveinternet.ru/click' "+
-"target=_blank><img src='//counter.yadro.ru/hit?t44.1;r"+
-escape(document.referrer)+((typeof(screen)=="undefined")?"":
-";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
-screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
-";h"+escape(document.title.substring(0,80))+";"+Math.random()+
-"' alt='' title='LiveInternet' "+
-"border='0' width='31' height='31'><\/a>")
-//--></script><!--/LiveInternet-->
+
 </body>
 </html>
