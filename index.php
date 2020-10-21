@@ -2,7 +2,7 @@
 <HEAD>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
 
-<title>Туристическая фирма Палома Турс</title>
+<title>РўСѓСЂРёСЃС‚РёС‡РµСЃРєР°СЏ С„РёСЂРјР° РџР°Р»РѕРјР° РўСѓСЂСЃ</title>
 
 <style type="text/css">
 body{font-family:Arial,Helvetica,sans-serif;color:#000;background:#F2D4E9; padding-top: 10px;}
@@ -40,7 +40,7 @@ A { COLOR: #ffffff; TEXT-DECORATION: none}
 
 
 
-/*Стили для отображения меню*/
+/*РЎС‚РёР»Рё РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РјРµРЅСЋ*/
 ul.mapps { font-size:11pt; font-weight:bold; margin: 0px; padding: 0px; width: 100%; list-style: none; background: #ffffff;}
 ul li ul li.mapps { font-size:10pt; font-weight:bold; padding-bottom: 5px; margin: 0px; padding-left: 5px; TEXT-DECORATION: none; background: #FFFFFF;  }
 
@@ -48,7 +48,7 @@ ul li a.mapps_text { vertical-align: top; width: 100%; display: block; padding-l
 ul li ul li a.mapps_text { width: 100%; display: block; padding: 0px; }
 
   
-/*Раскрашиваем буковки */
+/*Р Р°СЃРєСЂР°С€РёРІР°РµРј Р±СѓРєРѕРІРєРё */
 ul li a:hover.mapps_text { color: #ffffff; background: #cccccc;}
 ul li a:visited.mapps_text { color: #ffffff;}
 ul li a:active.mapps_text { color: #ffffff; background: #4975C1;}
@@ -75,7 +75,7 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
     <tr>   
      <td width="5" border="0" background="/common/img/tours_border.jpg"></td>
      <td width="250" border="0" valign="top" class="menu_text" bgcolor="#E299C3" style="background: url(../common/img/tours_gradient.jpg) repeat-x;">
-<font class="large_text">ВЫБОР ТУРА<br></font>
+<font class="large_text">Р’Р«Р‘РћР  РўРЈР Рђ<br></font>
 <div style="height: 5px;"><!-- --></div>
 <?php
 
@@ -85,7 +85,7 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
  $variants_list = mysql_query("SELECT id, name, is_container FROM records WHERE parent_id=150 ORDER BY priority",$db)
    or die("Invalid query: " . mysql_error());
 
-//Отображаем список вариантов туров
+//РћС‚РѕР±СЂР°Р¶Р°РµРј СЃРїРёСЃРѕРє РІР°СЂРёР°РЅС‚РѕРІ С‚СѓСЂРѕРІ
 
  if( $variants_list )
  {
@@ -104,13 +104,13 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
 
 ?>
 <div style="height: 10px;"><!-- --></div>
-<font class="large_text">СТРАНЫ<br></font>
+<font class="large_text">РЎРўР РђРќР«<br></font>
 <table border=0 cellpadding=0 cellspacing=0 width="100%" class="menu_text1">
 <?php
  $country_list = mysql_query("SELECT id, name FROM records WHERE parent_id=87 ORDER BY priority",$db)
    or die("Invalid query: " . mysql_error());
 
-//Отображаем список вариантов туров
+//РћС‚РѕР±СЂР°Р¶Р°РµРј СЃРїРёСЃРѕРє РІР°СЂРёР°РЅС‚РѕРІ С‚СѓСЂРѕРІ
 
  if( $country_list )
  {
@@ -131,7 +131,7 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
 ?>
 </table>
 <div style="height: 10px;"></div>
-<a href="http://paloma.ellink.ru/browse/show_tours_type.php?var_id=229"><font class="large_text">О КОМПАНИИ</font></a>
+<a href="http://paloma.ellink.ru/browse/show_tours_type.php?var_id=229"><font class="large_text">Рћ РљРћРњРџРђРќРР</font></a>
 
      </td>
      <td width="5" border="0" background="/common/img/tours_border.jpg"></td>
@@ -148,7 +148,7 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
   <table width="260" height="480" border=0 cellpadding=0 cellspacing=0 bgcolor="#D4E27E">
    <tr height="125">
     <td colspan="3" background="/common/img/hot_logo.jpg" style="padding-left: 10px; padding-top: 70px;">
-     <font class="large_text">Горячие<br>ПРЕДЛОЖЕНИЯ</font>
+     <font class="large_text">Р“РѕСЂСЏС‡РёРµ<br>РџР Р•Р”Р›РћР–Р•РќРРЇ</font>
     </td>
    </tr>
    <tr>   
@@ -163,7 +163,7 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
  $variants_list = mysql_query("SELECT id, name FROM records WHERE parent_id=163 ORDER BY priority",$db)
    or die("Invalid query: " . mysql_error());
 
-//Отображаем список вариантов туров
+//РћС‚РѕР±СЂР°Р¶Р°РµРј СЃРїРёСЃРѕРє РІР°СЂРёР°РЅС‚РѕРІ С‚СѓСЂРѕРІ
 
  if( $variants_list )
  {
@@ -185,10 +185,10 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
 <img src="/common/img/hot_menu_seapic.jpg" /><br>
 <div style="height: 32px;"><!-- --></div>
 <a href="http://paloma.ellink.ru/browse/show_hot_type.php?var_id=227">
-<font class="large_text">СЛОВО ДИРЕКТОРА</font></a>
+<font class="large_text">РЎР›РћР’Рћ Р”РР Р•РљРўРћР Рђ</font></a>
 <div style="height: 23px;"><!-- --></div>
 <a href="http://paloma.ellink.ru/browse/show_hot_type.php?var_id=228">
-<font class="large_text">КОНТАКТЫ</font></a>
+<font class="large_text">РљРћРќРўРђРљРўР«</font></a>
 <div style="height: 5px;"><!-- --></div>
 
      </td>
@@ -216,19 +216,19 @@ ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
    <td width="5" border="0" background="/common/img/pskov_border_left.jpg"></td>
    <td width="250" border="0" valign="top" class="menu_text_pskov" style="background: url(../common/img/pskov_gradient.jpg) repeat-x;">
  <a href="http://paloma.ellink.ru/browse/show_pskov_type.php?var_id=6">
-    <font class="large_text">Добро пожаловать<br>в Псковский регион!</font>
+    <font class="large_text">Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ<br>РІ РџСЃРєРѕРІСЃРєРёР№ СЂРµРіРёРѕРЅ!</font>
 <div style="height: 5px;"><!-- --></div>
 <font class="menu_text_white">
-С древнейших времен славится 
-город красотой. "А о Плескове-
-граде не обретается быть 
-вспомянуто, от кого бысть создан и 
-которыми людьми". Псков - один из 
-древнейших городов Руси, 
-который упоминается в "Повести 
-временных лет" в 903 году в связи с 
-женитьбой князя Игоря, сына 
-Рюрика, на псковитянке Ольге. 
+РЎ РґСЂРµРІРЅРµР№С€РёС… РІСЂРµРјРµРЅ СЃР»Р°РІРёС‚СЃСЏ 
+РіРѕСЂРѕРґ РєСЂР°СЃРѕС‚РѕР№. "Рђ Рѕ РџР»РµСЃРєРѕРІРµ-
+РіСЂР°РґРµ РЅРµ РѕР±СЂРµС‚Р°РµС‚СЃСЏ Р±С‹С‚СЊ 
+РІСЃРїРѕРјСЏРЅСѓС‚Рѕ, РѕС‚ РєРѕРіРѕ Р±С‹СЃС‚СЊ СЃРѕР·РґР°РЅ Рё 
+РєРѕС‚РѕСЂС‹РјРё Р»СЋРґСЊРјРё". РџСЃРєРѕРІ - РѕРґРёРЅ РёР· 
+РґСЂРµРІРЅРµР№С€РёС… РіРѕСЂРѕРґРѕРІ Р СѓСЃРё, 
+РєРѕС‚РѕСЂС‹Р№ СѓРїРѕРјРёРЅР°РµС‚СЃСЏ РІ "РџРѕРІРµСЃС‚Рё 
+РІСЂРµРјРµРЅРЅС‹С… Р»РµС‚" РІ 903 РіРѕРґСѓ РІ СЃРІСЏР·Рё СЃ 
+Р¶РµРЅРёС‚СЊР±РѕР№ РєРЅСЏР·СЏ РРіРѕСЂСЏ, СЃС‹РЅР° 
+Р СЋСЂРёРєР°, РЅР° РїСЃРєРѕРІРёС‚СЏРЅРєРµ РћР»СЊРіРµ. 
 </font>
 </a>
 
@@ -264,5 +264,209 @@ screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
 "' alt='' title='LiveInternet' "+
 "border='0' width='31' height='31'><\/a>")
 //--></script><!--/LiveInternet-->
+</body>
+</html>
+ul li a.mapps_text { vertical-align: top; width: 100%; display: block; padding-left: 6px;}
+ul li ul li a.mapps_text { width: 100%; display: block; padding: 0px; }
+
+  
+/*ГђГ Г±ГЄГ°Г ГёГЁГўГ ГҐГ¬ ГЎГіГЄГ®ГўГЄГЁ */
+ul li a:hover.mapps_text { color: #ffffff; background: #cccccc;}
+ul li a:visited.mapps_text { color: #ffffff;}
+ul li a:active.mapps_text { color: #ffffff; background: #4975C1;}
+ul li a:link.mapps_text { color: #ffffff; background: #4975C1; }
+
+ul li ul li a:hover.mapps_text { color: #6633cc; background: #cccccc; }
+ul li ul li a:visited.mapps_text { color: #6633cc; }
+ul li ul li a:active.mapps_text { color: #6633cc; background: #4975C1; }
+ul li ul li a:link.mapps_text { color: #6633cc; background: #FFFFFF; }
+
+</style>
+</head>
+<body leftmargin="0" rightmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<center>
+
+
+<table width="850" border=0 cellpadding=0 cellspacing=0 style="margin-top: 20px;">
+ <tr>
+
+ <td width="260" valign="top" border="0">
+  <img class="system" src="/common/img/tours_logo.jpg" width="260" height="84" border="0" style="display:block; margin:0;">
+   <table width="260" height="457" border=0 cellpadding=0 cellspacing=0 bgcolor="#E299C3">
+    <tr>   
+     <td width="5" border="0" background="/common/img/tours_border.jpg"></td>
+     <td width="250" border="0" valign="top" class="menu_text" bgcolor="#E299C3" style="background: url(../common/img/tours_gradient.jpg) repeat-x;">
+<font class="large_text">Г‚Г›ГЃГЋГђ Г’Г“ГђГЂ<br></font>
+<div style="height: 5px;"><!-- --></div>
+<?php
+
+ $db = mysql_connect("localhost", " ", " ");
+ mysql_select_db("paloma",$db);
+
+ $variants_list = mysql_query("SELECT id, name, is_container FROM records WHERE parent_id=150 ORDER BY priority",$db)
+   or die("Invalid query: " . mysql_error());
+
+//ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г±ГЇГЁГ±Г®ГЄ ГўГ Г°ГЁГ Г­ГІГ®Гў ГІГіГ°Г®Гў
+
+ if( $variants_list )
+ {
+  while ( $variant = mysql_fetch_array($variants_list) )
+  {
+   $variant_name = $variant["name"];
+   $variant_id = $variant["id"];
+   if( $variant_id != 229  )
+   {
+    echo("<a class=\"menu_link\" href=\"http://paloma.ellink.ru/browse/show_tours_type.php?var_id=$variant_id\">$variant_name</a>");
+    echo("<br>");
+   }
+  }
+ }
+
+
+?>
+<div style="height: 10px;"><!-- --></div>
+<font class="large_text">Г‘Г’ГђГЂГЌГ›<br></font>
+<table border=0 cellpadding=0 cellspacing=0 width="100%" class="menu_text1">
+<?php
+ $country_list = mysql_query("SELECT id, name FROM records WHERE parent_id=87 ORDER BY priority",$db)
+   or die("Invalid query: " . mysql_error());
+
+//ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г±ГЇГЁГ±Г®ГЄ ГўГ Г°ГЁГ Г­ГІГ®Гў ГІГіГ°Г®Гў
+
+ if( $country_list )
+ {
+  while ( $country = mysql_fetch_array($country_list) )
+  {
+   $country2 = mysql_fetch_array($country_list);
+   $country_name = $country["name"];
+   $country_id = $country["id"];
+   $country2_name = $country2["name"];
+   $country2_id = $country2["id"];
+
+   echo("<tr><td width=\"50%\" height=\"18\"><a class=\"menu_link\" href=\"http://paloma.ellink.ru/browse/show_tours_type.php?count_id=$country_id\">$country_name</a></td>
+             <td width=\"50%\" height=\"18\"><a class=\"menu_link\" href=\"http://paloma.ellink.ru/browse/show_tours_type.php?count_id=$country2_id\">$country2_name</a></td></tr>
+        ");
+   echo($variant["name"]);
+  }
+ }
+?>
+</table>
+<div style="height: 10px;"></div>
+<a href="http://paloma.ellink.ru/browse/show_tours_type.php?var_id=229"><font class="large_text">ГЋ ГЉГЋГЊГЏГЂГЌГ€Г€</font></a>
+
+     </td>
+     <td width="5" border="0" background="/common/img/tours_border.jpg"></td>
+    </tr>
+   </table>
+  <img class="system" src="/common/img/tours_bottom.jpg" width="260">
+ </td>
+ <td width="20"></td>
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+ <td width="260" valign="top" border="0">
+<!--  <img src="/common/img/tours_logo.jpg" width="260" height="84" border="0" style="display:block; margin:0;">-->
+  <table width="260" height="480" border=0 cellpadding=0 cellspacing=0 bgcolor="#D4E27E">
+   <tr height="125">
+    <td colspan="3" background="/common/img/hot_logo.jpg" style="padding-left: 10px; padding-top: 70px;">
+     <font class="large_text">ГѓГ®Г°ГїГ·ГЁГҐ<br>ГЏГђГ…Г„Г‹ГЋГ†Г…ГЌГ€Гџ</font>
+    </td>
+   </tr>
+   <tr>   
+    <td width="5" border="0" background="/common/img/hot_border_left.jpg"></td>
+    <td width="250" border="0" valign="top" class="menu_text" style="background: url(../common/img/hot_gradient.jpg) repeat-x;">
+     <div style="height: 5px;"><!-- --></div>
+<?php
+
+ $db = mysql_connect("localhost", " ", " ");
+ mysql_select_db("paloma",$db);
+
+ $variants_list = mysql_query("SELECT id, name FROM records WHERE parent_id=163 ORDER BY priority",$db)
+   or die("Invalid query: " . mysql_error());
+
+//ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г±ГЇГЁГ±Г®ГЄ ГўГ Г°ГЁГ Г­ГІГ®Гў ГІГіГ°Г®Гў
+
+ if( $variants_list )
+ {
+  while ( $variant = mysql_fetch_array($variants_list) )
+  {
+   $variant_name = $variant["name"];
+   $variant_id = $variant["id"];
+   if( ($variant_id != 227) && ($variant_id != 228)  )
+   {
+    echo("<a class=\"menu_link\" href=\"http://paloma.ellink.ru/browse/show_hot_type.php?var_id=$variant_id\">$variant_name</a>");
+    echo("<br>");
+   }
+  }
+ }
+
+?>
+
+<div style="height: 10px;"><!-- --></div>
+<img src="/common/img/hot_menu_seapic.jpg" /><br>
+<div style="height: 32px;"><!-- --></div>
+<a href="http://paloma.ellink.ru/browse/show_hot_type.php?var_id=227">
+<font class="large_text">Г‘Г‹ГЋГ‚ГЋ Г„Г€ГђГ…ГЉГ’ГЋГђГЂ</font></a>
+<div style="height: 23px;"><!-- --></div>
+<a href="http://paloma.ellink.ru/browse/show_hot_type.php?var_id=228">
+<font class="large_text">ГЉГЋГЌГ’ГЂГЉГ’Г›</font></a>
+<div style="height: 5px;"><!-- --></div>
+
+     </td>
+     <td width="5" border="0" background="/common/img/hot_border_right.jpg"></td>
+    </tr>
+   </table>
+  <img class="system" src="/common/img/hot_menu_bottom.jpg" width="260" valign="top">
+ </td>
+ <td width="20"></td>
+
+
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+ <td width="260" valign="top" border="0">
+<a href="/browse/show_eng_type.php?var_id=243">
+  <img src="/common/img/eng_start.gif" width="260" border="0" style="display:block; margin:0;">
+</a>
+  <div style="height: 13px;"><!-- --></div>
+  <img src="/common/img/pskov_logo.jpg" width="260" height="72" border="0" style="display:block; margin:0;">
+<!--  <img src="/common/img/tours_logo.jpg" width="260" height="84" border="0" style="display:block; margin:0;">-->
+   <table width="260" height="373" border=0 cellpadding=0 cellspacing=0 bgcolor="#F7931D">
+  <tr>   
+   <td width="5" border="0" background="/common/img/pskov_border_left.jpg"></td>
+   <td width="250" border="0" valign="top" class="menu_text_pskov" style="background: url(../common/img/pskov_gradient.jpg) repeat-x;">
+ <a href="http://paloma.ellink.ru/browse/show_pskov_type.php?var_id=6">
+    <font class="large_text">Г„Г®ГЎГ°Г® ГЇГ®Г¦Г Г«Г®ГўГ ГІГј<br>Гў ГЏГ±ГЄГ®ГўГ±ГЄГЁГ© Г°ГҐГЈГЁГ®Г­!</font>
+<div style="height: 5px;"><!-- --></div>
+<font class="menu_text_white">
+Г‘ Г¤Г°ГҐГўГ­ГҐГ©ГёГЁГµ ГўГ°ГҐГ¬ГҐГ­ Г±Г«Г ГўГЁГІГ±Гї 
+ГЈГ®Г°Г®Г¤ ГЄГ°Г Г±Г®ГІГ®Г©. "ГЂ Г® ГЏГ«ГҐГ±ГЄГ®ГўГҐ-
+ГЈГ°Г Г¤ГҐ Г­ГҐ Г®ГЎГ°ГҐГІГ ГҐГІГ±Гї ГЎГ»ГІГј 
+ГўГ±ГЇГ®Г¬ГїГ­ГіГІГ®, Г®ГІ ГЄГ®ГЈГ® ГЎГ»Г±ГІГј Г±Г®Г§Г¤Г Г­ ГЁ 
+ГЄГ®ГІГ®Г°Г»Г¬ГЁ Г«ГѕГ¤ГјГ¬ГЁ". ГЏГ±ГЄГ®Гў - Г®Г¤ГЁГ­ ГЁГ§ 
+Г¤Г°ГҐГўГ­ГҐГ©ГёГЁГµ ГЈГ®Г°Г®Г¤Г®Гў ГђГіГ±ГЁ, 
+ГЄГ®ГІГ®Г°Г»Г© ГіГЇГ®Г¬ГЁГ­Г ГҐГІГ±Гї Гў "ГЏГ®ГўГҐГ±ГІГЁ 
+ГўГ°ГҐГ¬ГҐГ­Г­Г»Гµ Г«ГҐГІ" Гў 903 ГЈГ®Г¤Гі Гў Г±ГўГїГ§ГЁ Г± 
+Г¦ГҐГ­ГЁГІГјГЎГ®Г© ГЄГ­ГїГ§Гї Г€ГЈГ®Г°Гї, Г±Г»Г­Г  
+ГђГѕГ°ГЁГЄГ , Г­Г  ГЇГ±ГЄГ®ГўГЁГІГїГ­ГЄГҐ ГЋГ«ГјГЈГҐ. 
+</font>
+</a>
+
+<div style="height: 10px;"><!-- --></div>
+<img src="/common/img/pskov_menu_pic.jpg" /><br>
+<div style="height: 10px;"><!-- --></div>
+     </td>
+     <td width="5" border="0" background="/common/img/pskov_border_right.jpg"></td>
+    </tr>
+   </table>
+
+  <img src="/common/img/pskov_menu_bottom.jpg" width="260">
+ </td>
+ <td width="10"></td>
+</tr>
+</table>
+
 </body>
 </html>
